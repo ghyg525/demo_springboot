@@ -3,8 +3,7 @@ package org.yangjie.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.yangjie.service.UserService;
 
 @Controller
@@ -14,7 +13,7 @@ public class UserController {
 	private UserService userService;  
 	
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@PostMapping("/login")
 	public String login(String username, String password, Model model) {
 		if (userService.login(username, password)) {
 			return "/index.jsp";
